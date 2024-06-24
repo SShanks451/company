@@ -13,7 +13,7 @@ const createUser = async (req, res) => {
   const { success } = signupBody.safeParse(req.body);
   if (!success) {
     res.status(400).json({
-      message: "Incorrect inputs",
+      message: "Invalid Inputs",
     });
   }
 
@@ -22,7 +22,7 @@ const createUser = async (req, res) => {
   const existingUser = await User.findOne({ emailId });
   if (existingUser) {
     res.status(400).json({
-      message: "Email already taken.",
+      message: "Email Already Taken",
     });
   }
 
@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
   const { success } = signinbody.safeParse(req.body);
   if (!success) {
     res.status(400).json({
-      message: "Incorrect inputs",
+      message: "Invalid Inputs",
     });
   }
 
@@ -63,14 +63,14 @@ const loginUser = async (req, res) => {
   const existingUser = await User.findOne({ emailId });
   if (!existingUser) {
     res.status(400).json({
-      message: "User not found with this email.",
+      message: "User not found with this email",
     });
   }
 
   const isPasswordValid = await bcrypt.compare(password, existingUser.password);
   if (!isPasswordValid) {
     res.status(400).json({
-      message: "Wrong Password!!!",
+      message: "Wrong Password!!",
     });
   }
 

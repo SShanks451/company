@@ -2,12 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 import axios from "axios";
+import SiteLogo from "../images/SiteLogo.jpg";
 
 import InputBox from "../muiComponents/InputBox";
 import Button from "../muiComponents/Button";
 import PasswordInputBox from "../muiComponents/PasswordInputBox";
 import BeatLoader from "react-spinners/BeatLoader";
-import SiteLogo from "../images/SiteLogo.jpg";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -16,12 +16,19 @@ const SignUpPage = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleContinueButton = async () => {
-    setIsLoading(true);
-    const response = await axios.post("http://localhost:3000/api/users/signup", { name, emailId, password });
-    console.log(response);
-    navigate("/profile");
+    try {
+      setIsLoading(true);
+      await axios.post("http://localhost:3000/api/users/signup", { name, emailId, password });
+      navigate("/");
+    } catch (error) {
+      setIsError(true);
+      setErrorMessage(error.response.data.message);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -44,6 +51,7 @@ const SignUpPage = () => {
           <div className="flex justify-center mt-7" onClick={handleContinueButton}>
             <Button label="Continue" />
           </div>
+          {isError && <div className="text-center text-red-600 font-semibold">{errorMessage}</div>}
           <div className="flex justify-center my-2">{isLoading && <BeatLoader color="#1976d2" />}</div>
           <div className="ml-[10px] mt-3 text-sm">
             Already have an account?{" "}

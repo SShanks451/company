@@ -14,7 +14,7 @@ function App() {
       element: <SignUpPage />,
     },
     {
-      path: "/profile",
+      path: "/",
       element: <Profile />,
     },
   ]);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "backend": "nodemon --env-file=.env index.js"
+    "backend": "node --env-file=.env index.js"
   },
   "keywords": [],
   "author": "",
