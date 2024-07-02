@@ -1,9 +1,23 @@
+import { ThemeProvider } from "@emotion/react";
 import Button from "@mui/material/Button";
+import { createTheme } from "@mui/material/styles";
 
-export default function BasicButtons({ label }) {
+export default function BasicButtons({ label, width, onClick = () => {}, paddingY = 1.25 }) {
+  const theme = createTheme({
+    palette: {
+      gray: {
+        main: "#b9bdba",
+        light: "#6d706e",
+        dark: "#6d706e",
+      },
+    },
+  });
+
   return (
-    <Button sx={{ width: 300, backgroundColor: "#4470ad", paddingY: 1.25 }} variant="contained">
-      {label}
-    </Button>
+    <ThemeProvider theme={theme}>
+      <Button sx={{ width: width, paddingY: paddingY }} variant="contained" color="gray" onClick={onClick}>
+        {label}
+      </Button>
+    </ThemeProvider>
   );
 }

@@ -47,7 +47,7 @@ const SignInPage = () => {
 
           <div className="ml-[10px] text-sm font-medium cursor-pointer w-fit">Forgot Password?</div>
           <div className="flex justify-center mt-7" onClick={handleContinueButton}>
-            <BasicButtons label="Continue" />
+            <BasicButtons label="Continue" width={300} />
           </div>
           {isError && <div className="text-center text-red-600 font-semibold">{errorMessage}</div>}
           <div className="flex justify-center my-2">{isLoading && <BeatLoader color="#1976d2" />}</div>

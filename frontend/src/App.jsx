@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignInPage from "./components/SignInPage";
 import SignUpPage from "./components/SignUpPage";
 import Profile from "./components/Profile";
+import FeedPage from "./components/FeedPage";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -17,10 +18,14 @@ function App() {
       path: "/",
       element: <Profile />,
     },
+    {
+      path: "/feed",
+      element: <FeedPage />,
+    },
   ]);
 
   return (
-    <div>
+    <div className="w-[100%] h-screen bg-[#212121]">
       <RouterProvider router={appRouter} />
     </div>
   );

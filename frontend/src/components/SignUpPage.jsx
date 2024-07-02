@@ -49,7 +49,7 @@ const SignUpPage = () => {
             <PasswordInputBox />
           </div>
           <div className="flex justify-center mt-7" onClick={handleContinueButton}>
-            <Button label="Continue" />
+            <Button label="Continue" width={300} />
           </div>
           {isError && <div className="text-center text-red-600 font-semibold">{errorMessage}</div>}
           <div className="flex justify-center my-2">{isLoading && <BeatLoader color="#1976d2" />}</div>
