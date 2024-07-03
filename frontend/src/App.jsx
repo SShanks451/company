@@ -3,6 +3,9 @@ import SignInPage from "./components/SignInPage";
 import SignUpPage from "./components/SignUpPage";
 import Profile from "./components/Profile";
 import FeedPage from "./components/FeedPage";
+import { Provider } from "react-redux";
+import appStore from "./redux/appStore";
+
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -25,9 +28,11 @@ function App() {
   ]);
 
   return (
-    <div className="w-[100%] h-screen bg-[#212121]">
-      <RouterProvider router={appRouter} />
-    </div>
+    <Provider store={appStore}>
+      <div className="w-[100%] min-h-screen bg-[#212121]">
+        <RouterProvider router={appRouter} />
+      </div>
+    </Provider>
   );
 }
 

@@ -2,7 +2,7 @@ import { ThemeProvider } from "@emotion/react";
 import Button from "@mui/material/Button";
 import { createTheme } from "@mui/material/styles";
 
-export default function BasicButtons({ label, width, onClick = () => {}, paddingY = 1.25 }) {
+export default function BasicButtons({ label, width, onClick = () => { }, paddingY = 1.25 }) {
   const theme = createTheme({
     palette: {
       gray: {

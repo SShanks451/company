@@ -3,14 +3,16 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 import axios from "axios";
 import SiteLogo from "../images/SiteLogo.jpg";
-
 import BasicTextFields from "../muiComponents/InputBox";
 import BasicButtons from "../muiComponents/Button";
 import PasswordInputBox from "../muiComponents/PasswordInputBox";
 import BeatLoader from "react-spinners/BeatLoader";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userSlice";
 
 const SignInPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
@@ -21,8 +23,9 @@ const SignInPage = () => {
   const handleContinueButton = async () => {
     try {
       setIsLoading(true);
-      await axios.post("http://localhost:3000/api/users/signin", { emailId, password });
-      navigate("/");
+      const res = await axios.post("http://localhost:3000/api/users/signin", { emailId, password });
+      dispatch(addUser({ name: res.data.name, emailId: res.data.emailId }));
+      navigate("/feed");
     } catch (error) {
       setIsError(true);
       setErrorMessage(error.response.data.message);
@@ -31,7 +34,7 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="flex flex-col w-[100%] h-screen justify-center">
+    <div className="flex flex-col w-[100%] h-screen justify-center bg-white">
       <div className="flex justify-center">
         <div className="flex flex-col h-auto border px-10 py-8 rounded-lg border-slate-800">
           <div className="flex justify-center mb-1">

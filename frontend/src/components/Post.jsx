@@ -24,7 +24,7 @@ const Post = ({ post }) => {
         </div>
         <div className=""></div>
       </div>
-      <div className="mx-4 mb-4 mt-1">
+      <div className="mx-4 mb-4 mt-1 whitespace-pre-wrap">
         {post.textContent}
       </div>
       <div className="mx-4 mb-4 mt-8 flex flex-row-reverse">
