@@ -12,7 +12,7 @@ const Post = ({ post }) => {
   }
 
   return (
-    <div className="border h-auto bg-[#3d3d3d] border-[#3d3d3d] rounded-lg mb-4">
+    <div className="border h-auto bg-[#3d3d3d] border-[#3d3d3d] rounded-sm mb-4">
       <div className="flex justify-between">
         <div className="flex w-[100%]">
           <div className="w-[10%] h-[4rem] border m-4 bg-green-600"></div>
