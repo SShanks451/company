@@ -23,6 +23,18 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+
+    reach: {
+      type: Number,
+      default: 100,
+    },
+
+    influencerType: {
+      type: String,
+      enum: ["Bronze", "Gold", "Platinum"],
+      default: "Bronze",
+      required: true,
+    },
   },
   {
     timestamps: true,

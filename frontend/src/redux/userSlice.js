@@ -3,17 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    name: null,
-    emailId: null,
+    userInfo: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null,
   },
   reducers: {
-    addUser: (state, action) => {
-      state.name = action.payload.name;
-      state.emailId = action.payload.emailId;
+    addUserInfo: (state, action) => {
+      state.userInfo = action.payload;
+      localStorage.setItem("userInfo", JSON.stringify(action.payload));
+
+      const expirationTime = new Date().getTime() + 30 * 24 * 60 * 60 * 1000;
+      localStorage.setItem("expirationTime", expirationTime);
+    },
+
+    signOutUser: (state) => {
+      state.userInfo = null;
+      localStorage.clear();
     },
   },
 });
 
-export const { addUser } = userSlice.actions;
+export const { addUserInfo, signOutUser } = userSlice.actions;
 
 export default userSlice.reducer;

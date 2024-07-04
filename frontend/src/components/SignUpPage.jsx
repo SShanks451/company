@@ -8,7 +8,9 @@ import Button from "../muiComponents/Button";
 import PasswordInputBox from "../muiComponents/PasswordInputBox";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useDispatch } from "react-redux";
-import { addUser } from "../redux/userSlice";
+import { addUserInfo } from "../redux/userSlice";
+
+axios.defaults.withCredentials = true;
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ const SignUpPage = () => {
     try {
       setIsLoading(true);
       const res = await axios.post("http://localhost:3000/api/users/signup", { name, emailId, password });
-      dispatch(addUser({ name: res.data.name, emailId: res.data.emailId }));
+      dispatch(addUserInfo(res.data));
       navigate("/feed");
     } catch (error) {
       setIsError(true);

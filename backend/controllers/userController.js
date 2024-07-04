@@ -38,10 +38,11 @@ const createUser = async (req, res) => {
   generateToken(res, newUser._id);
 
   res.status(200).json({
-    _id: newUser._id,
+    id: newUser._id,
     name: newUser.name,
     emailId: newUser.emailId,
-    isAdmin: newUser.isAdmin,
+    reach: newUser.reach,
+    influencerType: newUser.influencerType,
   });
 };
 
@@ -77,11 +78,21 @@ const loginUser = async (req, res) => {
   generateToken(res, existingUser._id);
 
   res.status(200).json({
-    _id: existingUser._id,
+    id: existingUser._id,
     name: existingUser.name,
     emailId: existingUser.emailId,
-    isAdmin: existingUser.isAdmin,
+    reach: existingUser.reach,
+    influencerType: existingUser.influencerType,
   });
 };
 
-export { createUser, loginUser };
+const logoutUser = async (req, res) => {
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+
+  res.status(200).json({ message: "Logged out successfully" });
+};
+
+export { createUser, loginUser, logoutUser };
