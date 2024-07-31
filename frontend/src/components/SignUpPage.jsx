@@ -28,7 +28,7 @@ const SignUpPage = () => {
       setIsLoading(true);
       const res = await axios.post("http://localhost:3000/api/users/signup", { name, emailId, password });
       dispatch(addUserInfo(res.data));
-      navigate("/feed");
+      navigate("/socialhandles");
     } catch (error) {
       setIsError(true);
       setErrorMessage(error.response.data.message);

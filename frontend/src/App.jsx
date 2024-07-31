@@ -5,7 +5,9 @@ import Profile from "./components/Profile";
 import FeedPage from "./components/FeedPage";
 import { Provider } from "react-redux";
 import appStore from "./redux/appStore";
-
+import CustomerType from "./components/CustomerType";
+import SocialHandles from "./components/SocialHandles";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -24,6 +26,18 @@ function App() {
     {
       path: "/feed",
       element: <FeedPage />,
+    },
+    {
+      path: "/customertype",
+      element: <CustomerType />,
+    },
+    {
+      path: "/socialhandles",
+      element: <SocialHandles />,
+    },
+    {
+      path: "/editprofile",
+      element: <EditProfile />,
     },
   ]);
 

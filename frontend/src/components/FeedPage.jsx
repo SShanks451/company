@@ -36,7 +36,13 @@ const FeedPage = () => {
     navigate("/signin");
   };
 
+  const user_info = useSelector((store) => store.user.userInfo);
+
   useEffect(() => {
+    if (!user_info) {
+      navigate("/signin");
+    }
+
     async function postsFunc() {
       const getAllPosts = await axios.get("/api/posts/allPosts");
       setAllPosts(getAllPosts.data);
@@ -44,12 +50,6 @@ const FeedPage = () => {
 
     postsFunc();
   }, [renderPosts]);
-
-  const user_info = useSelector((store) => store.user.userInfo);
-  if (!user_info) {
-    navigate("/signin");
-    return null;
-  }
 
   if (allPosts.length === 0) {
     return <Loader />;
