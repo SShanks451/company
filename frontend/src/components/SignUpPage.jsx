@@ -26,7 +26,7 @@ const SignUpPage = () => {
   const handleContinueButton = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.post("http://localhost:3000/api/users/signup", { name, emailId, password });
+      const res = await axios.post("/api/users/signup", { name, emailId, password });
       dispatch(addUserInfo(res.data));
       navigate("/socialhandles");
     } catch (error) {
