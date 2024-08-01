@@ -58,7 +58,7 @@ const SignInPage = () => {
           <div className="flex justify-center my-2">{isLoading && <BeatLoader color="#1976d2" />}</div>
           <div className="ml-[10px] mt-3 text-sm">
             Don't have an account?{" "}
-            <span className="cursor-pointer font-medium" onClick={() => navigate("/signup")}>
+            <span className="cursor-pointer font-medium" onClick={() => navigate("/customertype")}>
               Sign Up
             </span>
           </div>

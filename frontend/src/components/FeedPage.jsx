@@ -83,6 +83,14 @@ const FeedPage = () => {
           </div>
           {isProfileButton && (
             <div className="border w-[10rem] h-[10rem] absolute mr-5 top-[4rem]">
+              <div
+                className="w-[100%] border-b flex justify-center py-1 cursor-pointer"
+                onClick={() => {
+                  navigate("/profile");
+                }}
+              >
+                Profile
+              </div>
               <div className="w-[100%] border-b flex justify-center py-1 cursor-pointer" onClick={handleSignOutClick}>
                 Sign Out
               </div>

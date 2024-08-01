@@ -8,9 +8,14 @@ import appStore from "./redux/appStore";
 import CustomerType from "./components/CustomerType";
 import SocialHandles from "./components/SocialHandles";
 import EditProfile from "./components/EditProfile";
+import FlipWordsDemo from "./components/Landing";
 
 function App() {
   const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <FlipWordsDemo />,
+    },
     {
       path: "/signin",
       element: <SignInPage />,
@@ -20,7 +25,7 @@ function App() {
       element: <SignUpPage />,
     },
     {
-      path: "/",
+      path: "/profile",
       element: <Profile />,
     },
     {
