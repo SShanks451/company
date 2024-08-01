@@ -25,7 +25,7 @@ const SignInPage = () => {
   const handleContinueButton = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.post("https://finadbackend.vercel.app/api/users/signin", { emailId, password });
+      const res = await axios.post("https://company-xkua.onrender.com/api/users/signin", { emailId, password });
       dispatch(addUserInfo(res.data));
       navigate("/feed");
     } catch (error) {

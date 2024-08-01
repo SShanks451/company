@@ -23,7 +23,7 @@ const FeedPage = () => {
 
   const handlePostButtonClick = async () => {
     if (postTextContent != "") {
-      await axios.post("https://finadbackend.vercel.app/api/posts/createPost", { textContent: postTextContent });
+      await axios.post("https://company-xkua.onrender.com/api/posts/createPost", { textContent: postTextContent });
       setIsPost(!isPost);
       setPostTextContent("");
       setRenderPosts(!renderPosts);
@@ -31,7 +31,7 @@ const FeedPage = () => {
   };
 
   const handleSignOutClick = async () => {
-    await axios.post("https://finadbackend.vercel.app/api/users/logout");
+    await axios.post("https://company-xkua.onrender.com/api/users/logout");
     dispatch(signOutUser());
     navigate("/signin");
   };
@@ -44,7 +44,7 @@ const FeedPage = () => {
     }
 
     async function postsFunc() {
-      const getAllPosts = await axios.get("https://finadbackend.vercel.app/api/posts/allPosts");
+      const getAllPosts = await axios.get("https://company-xkua.onrender.com/api/posts/allPosts");
       setAllPosts(getAllPosts.data);
     }
 
