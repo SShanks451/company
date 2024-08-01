@@ -23,7 +23,7 @@ const FeedPage = () => {
 
   const handlePostButtonClick = async () => {
     if (postTextContent != "") {
-      await axios.post("https://company-xkua.onrender.com/api/posts/createPost", { textContent: postTextContent });
+      await axios.post("https://company-xkua.onrender.com/api/posts/createpost", { textContent: postTextContent });
       setIsPost(!isPost);
       setPostTextContent("");
       setRenderPosts(!renderPosts);
@@ -44,7 +44,7 @@ const FeedPage = () => {
     }
 
     async function postsFunc() {
-      const getAllPosts = await axios.get("https://company-xkua.onrender.com/api/posts/allPosts");
+      const getAllPosts = await axios.get("https://company-xkua.onrender.com/api/posts/allposts");
       setAllPosts(getAllPosts.data);
     }
 
