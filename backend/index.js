@@ -7,7 +7,7 @@ import postRoutes from "./routes/postRoutes.js";
 
 const app = express();
 
-app.use(cors({ credentials: true, origin: "https://company-xkua.onrender.com" }));
+app.use(cors({ credentials: true, origin: "https://finad.vercel.app" }));
 
 app.use(express.json());
 app.use(cookieParser());
