@@ -12,6 +12,19 @@ const postSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+<<<<<<< Updated upstream
+=======
+    pictures: [{ type: String }],
+    videos: [{ type: String }],
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+    reactions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    shares: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Share' }],
+    reports: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Report' }],
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+>>>>>>> Stashed changes
   },
   {
     timestamps: true,
